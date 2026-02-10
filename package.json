@@ -16,5 +16,14 @@
   },
   "dependencies": {
     "colors": "^1.4.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeivizw/nodesemframework.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jeivizw/nodesemframework/issues"
+  },
+  "homepage": "https://github.com/jeivizw/nodesemframework#readme"
 }
