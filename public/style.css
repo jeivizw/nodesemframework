@@ -9,7 +9,7 @@
         }
 
         h1 {
-            color: #d32f2f; /* Vermelho escuro */
+            color: #d32f2f; 
             margin-bottom: 30px;
         }
 
@@ -44,11 +44,12 @@
 
         .valor-prato {
             font-size: 1.5rem;
-            color: #2e7d32; /* Verde */
+            color: #2e7d32; 
             font-weight: bold;
         }
 
         .loading {
             font-style: italic;
             color: #666;
+
         }
