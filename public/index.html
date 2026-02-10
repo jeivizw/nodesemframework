@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Japonês</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🍣 Cardápio do Dia</h1>
+
+    <div id="menu-container">
+        <p class="loading">Carregando delícias...</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+    <p style="color: white;">Quer ver o que acontece se o link estiver quebrado?</p>
+    
+    <a href="/404.html" style="
+        background-color: #d32f2f; 
+        color: white; 
+        padding: 10px 20px; 
+        text-decoration: none; 
+        border-radius: 5px; 
+        font-weight: bold;">
+        Ir para Página de Erro
+    </a>
+</div>
+
+    <script>
+
+        async function buscarDados() {
+            try {
+
+                const resposta = await fetch('/api/dados');
+
+
+                const pratos = await resposta.json();
+
+                const container = document.getElementById('menu-container');
+                
+                container.innerHTML = '';
+
+                pratos.forEach(prato => {
+                    // Cria uma div para o cartão
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+
+                    // Preenche o HTML do cartão com os dados do servidor
+                    card.innerHTML = `
+                        <div class="nome-prato">${prato.nomedados}</div>
+                        <div class="valor-prato">R$ ${prato.valor.toFixed(2)}</div>
+                    `;
+
+                    // Adiciona o cartão na tela
+                    container.appendChild(card);
+                });
+
+            } catch (erro) {
+                console.error('Erro ao buscar dados:', erro);
+                document.getElementById('menu-container').innerHTML = 
+                    '<p style="color:red">Erro ao carregar o cardápio.</p>';
+            }
+        }
+
+        // Chama a função assim que a página carregar
+        window.onload = buscarDados;
+    </script>
+</body>
+</html>
