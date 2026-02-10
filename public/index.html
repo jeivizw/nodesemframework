@@ -43,17 +43,17 @@
                 container.innerHTML = '';
 
                 pratos.forEach(prato => {
-                    // Cria uma div para o cartão
+                    
                     const card = document.createElement('div');
                     card.classList.add('card');
 
-                    // Preenche o HTML do cartão com os dados do servidor
+               
                     card.innerHTML = `
                         <div class="nome-prato">${prato.nomedados}</div>
                         <div class="valor-prato">R$ ${prato.valor.toFixed(2)}</div>
                     `;
 
-                    // Adiciona o cartão na tela
+                  
                     container.appendChild(card);
                 });
 
@@ -64,8 +64,9 @@
             }
         }
 
-        // Chama a função assim que a página carregar
+        
         window.onload = buscarDados;
     </script>
 </body>
+
 </html>
